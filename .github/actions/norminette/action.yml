@@ -1,5 +1,5 @@
 name: 'norminette-install'
 description: 'install norminette'
-run:
+runs:
     using: 'Docker'
     image: 'Dockerfile'
