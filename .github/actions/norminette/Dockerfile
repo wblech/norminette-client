@@ -16,7 +16,7 @@ RUN apk --update add git && \
 	rm -rf /var/lib/apt/lists/* && \
 	rm /var/cache/apk/*
 
-RUN git clone https://github.com/42sp/norminette-client.git /home/norminette/
+RUN git clone -b feature/actions https://github.com/wblech/norminette-client /home/norminette/
 
 #################
 # Stage: bundler
