@@ -25,7 +25,7 @@ class Sender
 							vhost: 		"/",
 							user: 		$config['user'],
 							password: 	$config['password']
-		
+
 		@conn.start
 		@ch 			= @conn.create_channel
 		@x  			= @ch.default_exchange
@@ -77,7 +77,7 @@ class Norminette
 
 	def check files_or_directories, options
 		if options.version
-			version 
+			version
 		else
 			populate_recursive files_or_directories.any? ? files_or_directories : [$current_path]
 			send_files options
@@ -145,7 +145,10 @@ class Norminette
 	def manage_result result
 		puts "Norme: #{cleanify_path(result['filename'])}" 	if result['filename']
 		puts result['display']	 							if result['display']
-		exit 0 												if result['stop'] == true
+		if (result['stop'] == true && result['display'])
+			exit 0
+		else
+			exit 1
 	end
 end
 
@@ -183,4 +186,3 @@ class Parser
 end
 
 Norminette.new.check ARGV, Parser.parse(ARGV) if __FILE__ == $0
-

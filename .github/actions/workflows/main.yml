@@ -1,0 +1,12 @@
+name: Norminette Workflow
+on: push
+
+jobs:
+    build:
+        name: Norminette
+        runs-on: ubuntu-18.04
+        steps:
+            - uses: actions/checkout@v2
+            - uses: ./.github/actions/norminette
+            - name: norminette
+              run: /home/norminette
